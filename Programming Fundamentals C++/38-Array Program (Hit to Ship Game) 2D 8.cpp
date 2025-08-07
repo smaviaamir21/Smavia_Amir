@@ -15,6 +15,6 @@ int main(){
 		else{
 			cout<<"You missed it."<<endl;
 		}
-	} 
+	}
 	return 0;
 }
