@@ -1,0 +1,18 @@
+//basic syntex
+#include<iostream>
+using namespace std;
+class student{
+	public:
+		 string name;
+		 int age;
+		 void display(){
+		   cout<<"Name:"<<name<<endl<<"Class:"<<age;
+		 }
+		};
+int main(){
+student s1;
+s1.name="Smavia";
+s1.age=9;
+s1.display();
+return 0;
+}
