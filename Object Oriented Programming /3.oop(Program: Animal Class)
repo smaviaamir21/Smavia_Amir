@@ -1,0 +1,33 @@
+//Program: Animal Class
+#include <iostream>
+using namespace std;
+
+class Animal {
+public:
+    string name;
+    string sound;
+
+    // Constructor to initialize values
+    Animal(string n, string s) {
+        name = n;
+        sound = s;
+    }
+
+    // Method to print sound
+    void makeSound() {
+        cout << "The " << name << " says '" << sound << "'" << endl;
+    }
+};
+
+int main() {
+    // Create objects
+    Animal dog("Dog", "Woof");
+    Animal cat("Cat", "Meow");
+
+    // Call methods
+    dog.makeSound();
+    cat.makeSound();
+
+    return 0;
+}
+
