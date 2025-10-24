@@ -1,0 +1,20 @@
+#include <iostream>
+using namespace std;
+
+class Car {
+public:
+    string brand;
+    int year;
+
+    // Default constructor
+    Car() {
+        brand = "Toyota";
+        year = 2022;
+        cout << "Brand: " << brand << ", Year: " << year << endl;
+    }
+};
+
+int main() {
+    Car c1; // Constructor automatically executes
+    return 0;
+}
