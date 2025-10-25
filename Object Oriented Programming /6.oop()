@@ -1,0 +1,25 @@
+//Parameterized Constructor
+
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+public:
+    int length, width;
+
+    // Parameterized Constructor
+    Rectangle(int l, int w) {
+        length = l;
+        width = w;
+    }
+
+    int area() {
+        return length * width;
+    }
+};
+
+int main() {
+    Rectangle r1(5, 3);
+    cout << "Area = " << r1.area() << endl;
+    return 0;
+}
