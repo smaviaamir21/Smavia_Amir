@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int marks;
+
+    // Parameterized Constructor
+    Student(string n, int m) {
+        name = n;
+        marks = m;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s1("Sara", 90);
+    Student s2("Ali", 85);
+    s1.display();
+    s2.display();
+    return 0;
+}
