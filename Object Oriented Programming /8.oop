@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+private:
+    string name;
+    int age;
+
+public:
+    // Default constructor
+    Student(string n, int a) {
+        name = n;
+        age = a;
+    }
+
+    // Copy constructor
+    Student(const Student &obj) {
+        cout << "Copy constructor called!" << endl;
+        name = obj.name;
+        age = obj.age;
+    }
+
+    // Display function
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student s1("Alice", 20);   // Normal object
+    Student s2 = s1;           // Copy constructor called here
+
+    cout << "Details of s1: ";
+    s1.display();
+
+    cout << "Details of s2: ";
+    s2.display();
+
+    return 0;
+}
