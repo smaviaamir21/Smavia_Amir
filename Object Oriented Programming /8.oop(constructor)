@@ -1,18 +1,15 @@
 #include <iostream>
 using namespace std;
-
 class Student {
 private:
     string name;
     int age;
-
 public:
     // Default constructor
     Student(string n, int a) {
         name = n;
         age = a;
     }
-
     // Copy constructor
     Student(const Student &obj) {
         cout << "Copy constructor called!" << endl;
