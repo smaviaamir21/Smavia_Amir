@@ -1,0 +1,25 @@
+//rectangle class with copy constructor
+#include<iostream>
+using namespace std;
+class rectangle{
+	public:
+		int length, width;
+		rectangle(int l, int w){
+			length=l;
+			width=w;
+		}
+		rectangle(const rectangle &r){
+			length=r.length;
+			width=r.width;
+		}
+		void display(){
+			cout<<"Length:"<<length<<endl<<"Width:"<<width<<endl;
+		}
+};
+int main(){
+	rectangle r1(10,5);
+	rectangle r2(r1);
+	r2.display();
+	return 0;
+	
+}
