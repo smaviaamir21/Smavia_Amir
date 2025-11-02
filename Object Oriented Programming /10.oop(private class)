@@ -1,0 +1,30 @@
+//access private member through public class member
+#include<iostream>
+using namespace std;
+class over{
+	private:
+		int num;
+		char ch;
+	public:
+		over(){
+			num=0;
+			ch='x';
+		}
+	over(int n, char c){
+		num=n;
+		ch=c;
+	}
+	void show() const {
+		cout<<"num: "<<num<<endl;
+		cout<<"char: "<<ch<<endl;	
+	}	
+};
+int main(){
+	over a;
+	over b(42,'x');
+	cout<<"Object a:"<<endl;
+	a.show();
+	cout<<"Object b:"<<endl;
+	b.show();
+
+}
