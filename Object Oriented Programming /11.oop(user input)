@@ -1,0 +1,31 @@
+//user input
+#include<iostream>
+using namespace std;
+class over{
+	public:
+		int num;
+		char ch;
+		over(){
+			num=0;
+			ch='x';
+		}
+	over(int n, char c){
+		num=n;
+		ch=c;
+	}
+	void show() const {
+		cout<<"num: "<<num<<endl;
+		cout<<"char: "<<ch<<endl;	
+	}	
+};
+int main(){
+	over a;
+	a.num, a.ch;
+	cout<<"Enetr a number for  object a:";
+	cin>>a.num;
+	cout<<"Enetr char for object a:";
+	cin>>a.ch;
+	cout<<"Object a:"<<endl;
+	a.show();
+
+}
