@@ -1,0 +1,19 @@
+//construction initialization
+#include<iostream>
+using namespace std;
+class simple{
+	public:
+		int value;
+			simple(int v): value(v){}
+			
+};
+int main(){
+	simple obj1(10);
+	simple obj2=obj1;
+	cout<<"obj1 value:"<<obj1.value<<endl;
+	cout<<"obj2 value:"<<obj2.value<<endl;
+	obj1.value=20;
+	cout<<"after modifying obj1:"<<endl;
+	cout<<"obj1 value:"<<obj1.value<<endl;
+	cout<<"obj2 value:"<<obj2.value<<endl;
+}
