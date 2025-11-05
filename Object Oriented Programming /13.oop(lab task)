@@ -1,0 +1,23 @@
+//lab task
+#include<iostream>
+using namespace std;
+class Book{
+	public:
+		string author;
+		string title;
+		float price;
+
+		Book(string a, string t, float p):author(a),title(t),price(p){}
+
+	void display_info(){
+		cout<<"Title : "<<title<<"Author : "<<author<<"Price : "<<price<<endl;	
+	}	
+};
+int main(){
+	Book b1("C++","Harry",1200);
+	Book b2("Python for everyone","Jhon",1800);
+    cout<<"Book 1:"<<endl;
+	b1.display_info();
+	cout<<"Book 2:"<<endl;
+	b2.display_info();
+}
