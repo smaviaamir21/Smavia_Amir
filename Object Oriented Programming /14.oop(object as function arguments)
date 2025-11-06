@@ -1,0 +1,32 @@
+//object as function arguments
+// call my value
+#include<iostream>
+using namespace std;
+class Student{
+	public:
+		string name;
+		//constructor
+		Student(string n){
+			name=n;
+		}
+		void display(){
+			cout<<"Student name: "<<name<<endl;
+		}
+};
+//function using call my value
+void update(Student s1){
+	s1.name="Alic";
+	cout<<"inside update"<<endl;
+	s1.display();
+	}
+int main(){
+	Student s1("Jhon");
+	
+	cout<<"Befor function call"<<endl;
+	s1.display();
+	
+	update(s1);
+	
+	cout<<"After update:"<<endl;
+	s1.display();
+}
