@@ -12,7 +12,7 @@ class Student{
 		void display(){
 			cout<<"Student name: "<<name<<endl;
 		}
-};
+}; 
 //function using call my value
 void update(Student s1){
 	s1.name="Alic";
