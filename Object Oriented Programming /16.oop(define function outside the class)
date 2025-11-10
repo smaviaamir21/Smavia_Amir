@@ -1,0 +1,16 @@
+//define function outside the class
+#include<iostream>
+using namespace std;
+class Simple{
+	public:
+		void display();
+};
+void Simple::display(){
+cout<<"Hello World!";
+}
+int main(){
+
+	Simple obj;
+	obj.display();
+	
+}
