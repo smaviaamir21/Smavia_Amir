@@ -1,0 +1,21 @@
+//non_static data member
+#include<iostream>
+using namespace std;
+class counter{
+	public:
+		int count;
+		counter(){
+			count=0;
+		}
+		void inc(){
+			count++;
+			cout<<"count"<<count<<endl;
+		}
+};
+int main(){
+	counter c1;
+	counter c2;
+	c1.inc();
+	c1.inc();
+	c2.inc();
+}
