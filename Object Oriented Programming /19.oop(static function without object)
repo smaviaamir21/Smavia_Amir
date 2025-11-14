@@ -1,0 +1,14 @@
+//static function without object
+#include<iostream>
+using namespace std;
+class math{
+	public:
+		static void add(int a, int b){
+			cout<<"sum:"<<a+b<<endl;
+			cout<<"subtract:"<<a-b<<endl;
+			cout<<"mul:"<<a*b<<endl;
+		}
+};
+int main(){
+	math::add(5,10);
+}
