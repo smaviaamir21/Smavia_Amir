@@ -1,0 +1,29 @@
+//multiple inheritance with same function name
+//multiple inheritance
+#include<iostream>
+using namespace std;
+class transport_services{
+	public:
+		void vehicle(){
+			cout<<"transport"<<endl;
+		}
+};
+class vehicle_type{
+	public:
+		void vehicle(){
+	cout<<"vehicle"<<endl;
+}};
+class buses:public transport_services,public vehicle_type{
+	public:
+		void vehicle(){
+	cout<<"bus service"<<endl;
+}};
+int main(){
+ 	buses b;
+//    b.transport();
+//    b.vehicle();
+// 	b.bus();
+ 	b.transport_services::vehicle();
+ 	b.vehicle_type::vehicle();
+ 	b.buses::vehicle();
+ }
