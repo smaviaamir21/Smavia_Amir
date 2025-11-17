@@ -1,0 +1,26 @@
+//multilevel inheritance
+#include<iostream>
+using namespace std;
+class transport_services{
+	public:
+		void transport(){
+			cout<<"transport"<<endl;
+		}
+};
+class vehicle_type:public transport_services{
+	public:
+		void vehicle(){
+	cout<<"vehicle"<<endl;
+}};
+class buses:public vehicle_type{
+	public:
+		void bus(){
+	cout<<"bus service"<<endl;
+}};
+int main(){
+ 	buses b;
+ 	b.transport();
+ 	b.vehicle();
+ 	b.bus();
+ 	
+ }
