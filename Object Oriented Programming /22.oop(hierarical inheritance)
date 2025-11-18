@@ -1,0 +1,27 @@
+//hierarical inheritance
+#include<iostream>
+using namespace std;
+class father{
+	public:
+		void parent(){
+			cout<<"father"<<endl;
+		}
+};
+class son:public father{
+	public:
+		void child(){
+			cout<<"son"<<endl;
+		}
+};
+class grandson:public son{
+	public:
+		void child_of_child(){
+			cout<<"grandson"<<endl;
+		}
+};
+int main(){
+	grandson gs;
+	gs.parent();
+	gs.child();
+	gs.child_of_child();
+}
