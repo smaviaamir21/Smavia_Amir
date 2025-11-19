@@ -1,0 +1,41 @@
+//hybrib inheritance
+#include <iostream>
+using namespace std;
+
+class person {
+public:
+    void showperson() {
+        cout << "The person is " << endl;
+    }
+};
+
+class Student : virtual public person {
+public:
+    void showstudent() {
+        cout << "I am a student" << endl;
+    }
+};
+
+class Teacher : virtual public person {
+public:
+    void showteacher() {
+        cout << "I am a teacher" << endl;
+    }
+};
+
+class TeachingAssistant : public Student, public Teacher {
+public:
+    void showTA() {
+        cout << "I am a Teaching Assistant" << endl;
+    }
+};
+
+int main() {
+    TeachingAssistant ta;
+    ta.showperson();
+    ta.showstudent();
+    ta.showteacher();
+    ta.showTA();
+
+  return 0;
+}
