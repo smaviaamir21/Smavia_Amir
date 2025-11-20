@@ -1,0 +1,45 @@
+//virtual function
+#include<iostream>
+using namespace std;
+class vehicles{
+	public:
+		virtual void start()
+{
+	cout<<"vehicles starts"<<endl;
+}};
+class car:public vehicles{
+	public:
+		void start() override {
+		cout<<"car starts"<<endl;
+	}
+};
+class bike:public vehicles{
+	public:
+		void start() override {
+		cout<<"bike starts."<<endl;
+	}
+};
+class bus:public vehicles{
+	public:
+		void start() override {
+		cout<<"bus starts."<<endl;
+	}
+};
+int main(){
+//	vehicles*v=new car();
+//	vehicles*ve=new bike();
+//	vehicles*veh=new bus();
+//	v->start();
+//	ve->start();
+//	veh->start();
+	car c;
+	bike b;
+	bus bu;
+	vehicles *ptr;
+	ptr=&c;
+	ptr->start();
+	ptr=&b;
+	ptr->start();
+	ptr=&bu;
+	ptr->start();    
+}
