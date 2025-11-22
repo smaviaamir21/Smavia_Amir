@@ -1,0 +1,30 @@
+//abstract class
+#include<iostream>
+using namespace std;
+class Animal{
+	public:
+		virtual void sound()=0;
+};
+class dog:public Animal{
+	public:
+		void sound() override {
+		cout<<"Dog barks."<<endl;
+	}
+};
+class cat:public Animal{
+	public:
+		void sound() override {
+		cout<<"cat meown."<<endl;
+	}
+};
+int main(){
+	dog d;
+	cat c;
+	Animal*ptr;
+    ptr=&d;
+    ptr->sound();
+    ptr=&c;
+    ptr->sound();
+    delete ptr;
+
+}
