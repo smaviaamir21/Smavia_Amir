@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+class Result {
+protected:
+    int marks[3];     
+public:
+    void input() {
+        cout << "\nEnter marks for 3 subjects:\n";
+        for (int i = 0; i < 3; i++) {
+            cout << "Subject " << i + 1 << ": ";
+            cin >> marks[i];
+        }
+    }
+    void display() {
+        int total = marks[0] + marks[1] + marks[2];
+        float avg = total / 3.0;
+
+        cout << "\nTotal Marks = " << total;
+        cout << "\nAverage Marks = " << avg << endl;
+    }
+};
+int main() {
+    Result r;
+    cout << "=== Enter Student Details ===";
+    r.input();
+    cout << "\n=== Displaying Student Record ===";
+    r.display();
+}
