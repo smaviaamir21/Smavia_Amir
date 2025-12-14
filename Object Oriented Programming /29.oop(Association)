@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+class Teacher {
+public:
+    string name;
+};
+
+class Student {
+public:
+    void study(Teacher t) {   // Student just uses Teacher
+        cout << "Student studies from teacher " << t.name << "." << endl;
+    }
+};
+
+int main() {
+    Teacher t1;          // create Teacher object
+    t1.name = "Ali";
+
+    Student s1;          // create Student object
+    s1.study(t1);        // Student uses Teacher (Association)
+
+    return 0;
+}
+
