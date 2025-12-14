@@ -1,0 +1,70 @@
+Smart Tea Order System
+#include <iostream>
+using namespace std;
+
+// COMPOSITION
+class Bill {
+public:
+    int amount;
+    Bill(int a) { amount = a; }
+};
+
+// AGGREGATION
+class Tea {
+public:
+    string name;
+    int price;
+    Tea(string n, int p) { name = n; price = p; }
+};
+
+class Order {
+    Bill b;        // COMPOSITION
+    Tea* t;        // AGGREGATION
+    int cups;
+public:
+    Order(Tea* tea, int c) : b(tea->price * c) {
+        t = tea;
+        cups = c;
+    }
+
+    void showOrder() {
+        cout << "Tea: " << t->name << endl;
+        cout << "Cups: " << cups << endl;
+        cout << "Total Bill: " << b.amount << endl;
+    }
+};
+
+// ASSOCIATION
+class Customer {
+public:
+    void placeOrder(Order &o) {   // ASSOCIATION
+        cout << "\nCustomer placed order.\n";
+        o.showOrder();
+    }
+};
+
+int main() {
+    Tea t1("Doodh Patti", 100);
+    Tea t2("Green Tea", 120);
+    Tea t3("Kashmiri Chai", 110);
+
+    int choice, cups;
+    cout << "1. Doodh Patti\n2. Green Tea\n3. Kashmiri Chai\n";
+    cout << "Select Tea: ";
+    cin >> choice;
+
+    cout << "Enter number of cups: ";
+    cin >> cups;
+
+    Tea* selectedTea;
+    if (choice == 1) selectedTea = &t1;
+    else if (choice == 2) selectedTea = &t2;
+    else selectedTea = &t3;
+
+    Order o(selectedTea, cups);
+    Customer c;
+    c.placeOrder(o);
+
+    return 0;
+}
+
