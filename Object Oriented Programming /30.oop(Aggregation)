@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Teacher {
+public:
+    string name;
+    Teacher(string n) {
+        name = n;
+    }
+};
+
+class Department {
+    Teacher* t;   // Aggregation (pointer)
+public:
+    Department(Teacher* teacher) {
+        t = teacher;
+    }
+
+    void show() {
+        cout << "Department teacher: " << t->name << endl;
+    }
+};
+
+int main() {
+    Teacher t1("Ali");          // Teacher exists independently
+
+    Department d1(&t1);         // Department uses Teacher
+    d1.show();
+
+    return 0;
+}
