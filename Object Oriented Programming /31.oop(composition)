@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+class Heart {
+public:
+    Heart() {
+        cout << "Heart class created" << endl;
+    }
+};
+
+class Human {
+    Heart h;   // Composition (object inside class)
+public:
+    Human() {
+        cout << "Human class created" << endl;
+    }
+};
+
+int main() {
+    Human h1;   // Creating Human automatically creates Heart
+    return 0;
+}
