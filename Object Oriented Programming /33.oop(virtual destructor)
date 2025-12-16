@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+class Device {
+public:
+    Device() {
+        cout << "Device created" << endl;
+    }
+
+    // VIRTUAL DESTRUCTOR
+    virtual ~Device() {
+        cout << "Device destroyed" << endl;
+    }
+};
+
+class Laptop : public Device {
+public:
+    Laptop() {
+        cout << "Laptop created" << endl;
+    }
+
+    ~Laptop() {
+        cout << "Laptop destroyed" << endl;
+    }
+};
+
+int main() {
+    Device* d = new Laptop();   // base pointer → derived object
+    delete d;                   // proper destruction
+    return 0;
+}
