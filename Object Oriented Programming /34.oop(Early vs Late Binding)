@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+class Shape {
+public:
+    void draw() {   // NON-virtual function
+        cout << "Drawing a generic shape (Early Binding)" << endl;
+    }
+
+    virtual void area() {   // virtual function
+        cout << "Calculating area of a shape (Late Binding)" << endl;
+    }
+
+    virtual ~Shape() {}   // virtual destructor (good practice)
+};
+class Circle : public Shape {
+public:
+    void draw() {   // function hiding (early binding)
+        cout << "Drawing a circle" << endl;
+    }
+
+    void area() override {   // overridden function (late binding)
+        cout << "Area of circle = π * r * r" << endl;
+    }
+};
+int main() {
+
+    Shape* s;
+    Circle c;
+
+    s = &c;
+
+    cout << "Calling draw() function:" << endl;
+    s->draw();     // EARLY BINDING → Shape::draw()
+
+    cout << "\nCalling area() function:" << endl;
+    s->area();     // LATE BINDING → Circle::area()
+
+    return 0;
+}
