@@ -1,0 +1,88 @@
+//simple program
+#include<iostream>
+using namespace std;
+class player{
+	public:
+		string name;
+		player(string n){
+			name=n;
+		}
+};
+class Team{
+	player* p;
+	public:
+		Team(player* play){
+			p=play;
+		}
+		void showplayer(){
+			cout<<"name of player is:"<<p->name;
+		}
+};
+int main(){
+	player p1("Ali");
+	Team t1(&p1);
+	t1.showplayer();
+	return 0;
+}
+//proper and difficult
+#include <iostream>
+using namespace std;
+class Player {
+public:
+    string name;
+
+    Player(string n) {
+        name = n;
+        cout << "Player created: " << name << endl;
+    }
+
+    void display() {
+        cout << "Player Name: " << name << endl;
+    }
+
+    ~Player() {
+        cout << "Player destroyed: " << name << endl;
+    }
+};
+class Team {
+public:
+    Player* players[5];   // storing player pointers
+    int count;
+
+    Team() {
+        count = 0;
+        cout << "Team created" << endl;
+    }
+
+    void addPlayer(Player* p) {
+        players[count] = p;
+        count++;
+    }
+    void showPlayers() {
+        cout << "\nTeam Players:" << endl;
+        for (int i = 0; i < count; i++) {
+            players[i]->display();
+        }
+    }
+    ~Team() {
+        cout << "Team destroyed" << endl;
+    }
+};
+int main() {
+    // Players created independently
+    Player* p1 = new Player("Ali");
+    Player* p2 = new Player("Sara");
+    {
+        Team t;
+        t.addPlayer(p1);
+        t.addPlayer(p2);
+        t.showPlayers();
+    }   // Team destroyed here
+    cout << "\nAfter Team is destroyed:\n";
+    p1->display();
+    p2->display();
+    // Manually delete players
+    delete p1;
+    delete p2;
+    return 0;
+}
