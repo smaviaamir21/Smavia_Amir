@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+public:
+    int value;
+
+    // Constructor
+    Number(int v) {
+        value = v;
+    }
+
+    // Prefix increment (++n)
+    void operator++() {
+        ++value;
+    }
+
+    // Postfix increment (n++)
+    void operator++(int) {
+        value++;
+    }
+
+    // Display function
+    void show() {
+        cout << "Value = " << value << endl;
+    }
+};
+
+int main() {
+    Number n(5);   // Object created using constructor
+
+    ++n;           // Prefix increment
+    n.show();
+
+    n++;           // Postfix increment
+    n.show();
+
+    return 0;
+}
