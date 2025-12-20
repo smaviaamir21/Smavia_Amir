@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+    int value;
+
+public:
+    // Default constructor
+    Number() {
+        value = 0;
+    }
+
+    // Setter (takes input)
+    void setValue() {
+        cout << "Enter a number: ";
+        cin >> value;
+    }
+
+    // Getter (returns value)
+    int getValue() {
+        return value;
+    }
+
+    // Prefix increment
+    void operator++() {
+        ++value;
+    }
+
+    // Postfix increment
+    void operator++(int) {
+        value++;
+    }
+
+    // Display
+    void show() {
+        cout << "Value = " << getValue() << endl;
+    }
+};
+
+int main() {
+    Number n;
+
+    n.setValue();
+
+    ++n;     // Prefix
+    n.show();
+
+    n++;     // Postfix
+    n.show();
+
+    return 0;
+}
