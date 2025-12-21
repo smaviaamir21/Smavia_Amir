@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+class Vehicle {
+protected:
+    string brand;
+private:
+    int speed;
+public:
+    Vehicle(string b, int s) {
+        brand = b;
+        speed = s;
+    }
+    void setSpeed(int s) {
+        speed = s;
+    }
+    int getSpeed() {
+        return speed;
+    }
+    void displayVehicle() {
+        cout << "Brand: " << brand << endl;
+        cout << "Speed: " << speed << "km/h" <<endl;
+    }
+};
+class Car : public Vehicle {
+private:
+    string fuelType;
+
+public:
+    Car(string b, int s, string ft) : Vehicle(b, s) {
+        fuelType = ft;
+    }
+    void displayCar() {
+        cout << "Brand: " << brand << endl;  //protected ? accessible
+
+        // cout << speed; ? ERROR: speed is private in Vehicle
+
+        cout << "Speed: " << getSpeed() << " km/h"<< endl; 
+        cout << "Fuel Type: " << fuelType << endl;
+    }
+};
+int main() {
+    Car c("Rolls Royce", 250, "Petrol");
+    c.displayCar();
+    return 0;
+}
