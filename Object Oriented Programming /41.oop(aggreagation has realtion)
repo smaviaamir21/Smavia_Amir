@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+class professor{
+	public:
+	string name;
+	professor(string n){
+		name=n;
+	}
+	void display(){
+		cout<<"name:"<<name;
+	}
+};
+class department{
+	professor* p;
+	public:
+		department(professor* pro){
+			p=pro;
+		}
+	void showdepartment(){
+		cout<<"Professor: "<<p->name<<endl;
+	}
+};
+int main(){
+	professor p1("Mr.Ali");
+	department d1(&p1);
+	d1.showdepartment();
+	return 0;
+}
