@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Player {
+public:
+    string name;
+
+    Player(string n) {
+        name = n;
+        cout << "Player created: " << name << endl;
+    }
+
+    ~Player() {
+        cout << "Player still exists: " << name << endl;
+    }
+};
+
+class Team {
+    Player* p;   // Aggregation (pointer)
+public:
+    Team(Player* player) {
+        p = player;
+        cout << "Team created" << endl;
+    }
+
+    void showPlayers() {
+        cout << "Team player: " << p->name << endl;
+    }
+
+    ~Team() {
+        cout << "Team destroyed" << endl;
+    }
+};
+
+int main() {
+    Player p1("Cristiano Ronaldo");     // Player created first
+
+    {
+        Team t1(&p1);       // Team uses Player
+        t1.showPlayers();
+    }   // Team destroyed here
+
+    cout << "Player can join another team later." << endl;
+
+    return 0;
+}
