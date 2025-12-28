@@ -1,0 +1,107 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+class WeatherData {
+public:
+    float temperature;
+    float humidity;
+    float windSpeed;
+    WeatherData(float t, float h, float w) {
+        temperature = t;
+        humidity = h;
+        windSpeed = w;
+    }
+};
+class Sensor {
+public:
+    virtual float readData() = 0;  
+    virtual ~Sensor() {}
+};
+class TemperatureSensor : public Sensor {
+public:
+    float readData() override {
+        return 10 + rand() % 31;  
+    }
+};
+class HumiditySensor : public Sensor {
+public:
+    float readData() override {
+        return 30 + rand() % 66;  
+    }
+};
+class WindSensor : public Sensor {
+public:
+    float readData() override {
+        return rand() % 61;        
+    }
+};
+class WeatherStation {
+private:
+    Sensor* tempSensor;
+    Sensor* humSensor;
+    Sensor* windSensor;
+public:
+    WeatherStation() {
+        tempSensor = new TemperatureSensor();
+        humSensor  = new HumiditySensor();
+        windSensor = new WindSensor();
+    }
+    WeatherData collectData() {
+        float t = tempSensor->readData();
+        float h = humSensor->readData();
+        float w = windSensor->readData();
+        return WeatherData(t, h, w); 
+    }
+    ~WeatherStation() {
+        delete tempSensor;
+        delete humSensor;
+        delete windSensor;
+    }
+};
+class Analyzer {
+public:
+    virtual void predict(WeatherData data) = 0;
+    virtual ~Analyzer() {}
+};
+class RainPrediction : public Analyzer {
+public:
+    void predict(WeatherData data) override {
+        cout << "Rain Chance: ";
+        if (data.humidity > 70)
+            cout << "High\n";
+        else
+            cout << "Low\n";
+    }
+};
+class StormPrediction : public Analyzer {
+public:
+    void predict(WeatherData data) override {
+        cout << "Storm Chance: ";
+        if (data.windSpeed > 40 && data.humidity > 60)
+            cout << "High\n";
+        else
+            cout << "Low\n";
+    }
+};
+int main() {
+    srand(time(0));
+
+    WeatherStation station;          
+    WeatherData data = station.collectData();
+
+    cout << "Temperature: " << data.temperature << " C\n";
+    cout << "Humidity: " << data.humidity << " %\n";
+    cout << "Wind Speed: " << data.windSpeed << " km/h\n\n";
+
+    Analyzer* a1 = new RainPrediction();   
+    Analyzer* a2 = new StormPrediction();
+
+    a1->predict(data);   
+    a2->predict(data);
+
+    delete a1;
+    delete a2;
+
+    return 0;
+}
