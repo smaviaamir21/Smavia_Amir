@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+class Vehicle {
+public:
+    string number;
+
+    Vehicle(string n) {
+        number = n;
+    }
+};
+
+class Ticket {
+public:
+    int fee;
+
+    Ticket(int f) {
+        fee = f;
+    }
+};
+
+class Parking {
+public:
+    virtual void showDetails() {
+        cout << "General Parking" << endl;
+    }
+
+    virtual ~Parking() {}
+};
+
+class CarParking : public Parking {
+    Vehicle* v;     // Association
+    Ticket t;       // Composition
+
+public:
+    CarParking(Vehicle* veh) : t(100) {
+        v = veh;
+    }
+
+    void showDetails() override {
+        cout << "Vehicle Number: " << v->number << endl;
+        cout << "Parking Fee: " << t.fee << endl;
+    }
+};
+
+int main() {
+    Vehicle car("LEA-1234");
+
+    Parking* p;                 // Polymorphism
+    CarParking cp(&car);         // Object creation
+    p = &cp;
+
+    p->showDetails();            // Dynamic binding
+
+    return 0;
+}
