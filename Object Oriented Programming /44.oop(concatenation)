@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+// Class to handle string concatenation
+class Message {
+private:
+    string text;
+
+public:
+    // Constructor
+    Message(string t) {
+        text = t;
+    }
+
+    // Function to concatenate another string
+    void concatenate(string otherText) {
+        text = text + otherText;
+    }
+
+    // Function to display result
+    void display() {
+        cout << "Final Message: " << text << endl;
+    }
+};
+
+int main() {
+    Message msg("Hello");
+    
+    msg.concatenate(" World");
+    msg.concatenate("!");
+
+    msg.display();
+
+    return 0;
+}
