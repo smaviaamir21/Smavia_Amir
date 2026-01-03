@@ -84,6 +84,5 @@ GitHub: smaviaamir21
 ⭐ Note 
 
 Feel free to explore the code. Suggestions for improvement are always welcome.
-Help you design folder names + file naming rules for C++
 
 Just tell me 😊
