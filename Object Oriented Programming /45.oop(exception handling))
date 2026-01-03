@@ -1,0 +1,21 @@
+  #include<iostream>
+using namespace std;
+int main(){
+	int a,b,c;
+	cout<<"Enter two values"<<endl;
+	cin>>a>>b;
+	try{
+	if(b!=0){
+		c=a/b;
+		cout<<"Division is:"<<c<<endl;
+		
+	}
+	else{
+		throw b;
+	}
+	}
+	catch(int b){
+		cout<<"b is 0 so division is not possible."<<endl;
+	}
+	return 0;
+}
