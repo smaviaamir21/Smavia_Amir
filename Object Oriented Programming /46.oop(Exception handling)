@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+// Custom exception class
+class InvalidAgeException {
+public:
+    // Constructor that displays an error message
+    InvalidAgeException(const string& msg) {
+        cout << msg << endl;  // Print the error message
+    }
+};
+
+class Person {
+public:
+    // Method to set the age of the person
+    void setAge(int age) {
+        if (age < 0) {
+            throw InvalidAgeException("Error: Age cannot be negative!");  // Throw exception if age is negative
+        }
+        cout << "Age is set to " << age << endl;
+    }
+};
+
+int main() {
+    Person person;  // Create an object of Person class
+    int age;
+
+    cout << "Enter age: ";
+    cin >> age;
+
+    try {
+        person.setAge(age);  // Try to set the age of the person
+    }
+    catch (InvalidAgeException& e) {  // Catch the InvalidAgeException
+        // Error message is already printed by the constructor of InvalidAgeException
+    }
+
+    return 0;
+}
