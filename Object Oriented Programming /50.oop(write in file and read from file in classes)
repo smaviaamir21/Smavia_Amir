@@ -1,0 +1,61 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+class Student {
+public:
+    int id;
+    string name;
+    float marks;
+
+    // Function to take input from user
+    void input() {
+        cout << "Enter ID: ";
+        cin >> id;
+        cin.ignore();   // clear buffer
+
+        cout << "Enter Name: ";
+        getline(cin, name);
+
+        cout << "Enter Marks: ";
+        cin >> marks;
+    }
+
+    // Function to save data to file
+    void saveToFile() {
+        ofstream out("student.txt");   // overwrite mode
+        out << id << endl;
+        out << name << endl;
+        out << marks << endl;
+        out.close();
+    }
+
+    // Function to read data from file
+    void readFromFile() {
+        ifstream in("student.txt");
+        in >> id;
+        in.ignore();
+        getline(in, name);
+        in >> marks;
+        in.close();
+    }
+
+    // Function to display data
+    void display() {
+        cout << "\nStudent Data from File:\n";
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name << endl;
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Student s;
+
+    s.input();        // take input
+    s.saveToFile();   // save to file
+    s.readFromFile(); // read from file
+    s.display();      // display data
+
+    return 0;
+}
