@@ -1,0 +1,29 @@
+#include <iostream> 
+using namespace std;
+class demo {
+    int a; 
+public:
+    void getdata() {
+        cout << "Enter a number: ";  
+        cin >> a;                 
+    }
+    void putdata() {
+        cout << "Value of a = " << a << endl; 
+    }
+    void operator++(int) {
+        cout << "Value of a before increment: " << a << endl;
+        a++;  
+    }
+};
+int main() {
+    demo aa;    
+    aa.getdata();  
+    cout << "Value before increment: ";
+    aa.putdata();  
+
+    aa++;  
+
+    cout << "Value after increment: ";
+    aa.putdata();  
+    return 0; 
+}
