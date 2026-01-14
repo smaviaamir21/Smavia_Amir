@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+// Forward declaration
+class Truck;
+
+class Car {
+private:
+    int speed;
+
+public:
+    void setSpeed(int s) {
+        speed = s;
+    }
+
+    // Friend function declaration
+    friend void showMaxSpeed(Car, Truck);
+};
+
+class Truck {
+private:
+    int speed;
+
+public:
+    void setSpeed(int s) {
+        speed = s;
+    }
+
+    // Same friend function
+    friend void showMaxSpeed(Car, Truck);
+};
+
+// Friend function definition
+void showMaxSpeed(Car c, Truck t) {
+    if (c.speed > t.speed)
+        cout << "Car speed is higher: " << c.speed;
+    else
+        cout << "Truck speed is higher: " << t.speed;
+}
+
+int main() {
+    Car myCar;
+    Truck myTruck;
+
+    myCar.setSpeed(120);
+    myTruck.setSpeed(90);
+
+    showMaxSpeed(myCar, myTruck);
+
+    return 0;
+}
